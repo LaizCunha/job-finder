@@ -2,7 +2,13 @@ const express = require('express');
 const router = express.Router();
 const Job = require('../models/Job');
 
-// ADICIONAR O JOB VIA POST
+
+// ROTA DE TESTE
+router.get('/test', (req, res) => {
+   res.send("deu certo");
+});
+
+// ADICIONAR JOB VIA POST
 
 router.post('/add', (req, res) => {
     
@@ -21,3 +27,5 @@ router.post('/add', (req, res) => {
    .catch(err => console.log(err));
 
 });
+
+module.exports = router;

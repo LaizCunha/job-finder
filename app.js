@@ -3,14 +3,15 @@ const app       = express();
 const db        = require('./db/connection');
 const bodyParser = require('body-parser');
 
-const port = 3000;
 
-app.listen(port, function() {
-    console.log(`O Express está rodando na porta ${port}.`);
+const PORT = 3000;
+
+app.listen(PORT, function() {
+    console.log(`O Express está rodando na porta ${PORT}.`);
 });
 
 //BORY-PARSER
-app.use(bodyParser.urlencoded({extend: false}));
+app.use(bodyParser.urlencoded({extended: false}));
 
 //DB CONNECTION
 db
@@ -23,9 +24,9 @@ db
     });
 
 //ROUTES
-app.get('/', (req,res) => {
-    res.send("A rota está funcionando.")
+app.get('/', (req, res) => {
+    res.send("A rota está funcionando.");
 });
 
 //JOBS ROUTES
-app.use('./jobs')
+app.use('/jobs', require('./routes/jobs'));
