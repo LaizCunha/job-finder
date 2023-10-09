@@ -1,12 +1,19 @@
 const express = require('express');
-const router = express.Router();
-const Job = require('../models/Job');
+const router  = express.Router();
+const Job     = require('../models/Job');
 
 
 // ROTA DE TESTE
 router.get('/test', (req, res) => {
    res.send("deu certo");
 });
+
+
+// BUSCA
+
+router.get('/add', (req, res) => {
+   res.render("add.handlebars");
+})
 
 // ADICIONAR JOB VIA POST
 
