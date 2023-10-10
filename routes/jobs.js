@@ -15,6 +15,17 @@ router.get('/add', (req, res) => {
    res.render("add.handlebars");
 })
 
+// DETALHE DA VAGA
+
+router.get('/view/:id', (req,res) => Job.findOne({
+      where: {id: req.params.id}
+   }).then(job => {
+
+      res.render('view', {job});
+
+   }).catch(err => console.log(err))
+);
+
 // ADICIONAR JOB VIA POST
 
 router.post('/add', (req, res) => {
